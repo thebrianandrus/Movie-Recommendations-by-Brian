@@ -3,14 +3,11 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-st.title("Movie Finder")
+st.title("Movie Reccommendations, By Brian Andrus")
 
 try:
     df = pd.read_csv("movies.csv")
     df.columns = df.columns.str.strip()
-
-    st.write("Data loaded:")
-    st.write(df)
 
     vectorizer = TfidfVectorizer(stop_words="english")
     tfidf_matrix = vectorizer.fit_transform(df["description"])
